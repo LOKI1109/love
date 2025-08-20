@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Love Story ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* Background video */
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(70%);
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 20px;
+      background: rgba(0,0,0,0.4);
+    }
+    header h1 {
+      font-size: 3em;
+    }
+    header p {
+      font-size: 1.2em;
+    }
+
+    /* Timeline layout */
+    .timeline {
+      position: relative;
+      margin: 50px auto;
+      padding: 20px 0;
+      width: 80%;
+    }
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background-color: white;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+    }
+    .container {
+      padding: 20px 30px;
+      position: relative;
+      background: rgba(255, 182, 193, 0.7);
+      border-radius: 12px;
+      width: 40%;
+      margin-bottom: 40px;
+      animation: fadeIn 1.5s ease;
+    }
+    .left {
+      left: 0;
+    }
+    .right {
+      left: 50%;
+    }
+    .container img {
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 10px;
+    }
+    .container h2 {
+      margin: 0;
+      color: #ffebf0;
+    }
+    .container p {
+      font-size: 1em;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: fixed;
+      bottom: 0;
+      color: red;
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-100vh); opacity: 0; }
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0,0,0,0.4);
+      margin-top: 30px;
+    }
+    footer a {
+      color: pink;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Background video -->
+  <video autoplay muted loop id="bg-video">
+    <source src="fss.mp4" type="video/mp4">
+    Your browser does not support video.
+  </video>
+
+<!-- Background music -->
+<audio id="bg-music" loop>
+  <source src="ed-sheeran-perfect-official-music-video_5vro8Na3.mp3" type="audio/mp3">
+</audio>
+
+<button onclick="document.getElementById('bg-music').play()" 
+        style="position:fixed;bottom:20px;right:20px;padding:10px 20px;
+               border:none;border-radius:8px;background:pink;font-weight:bold;">
+  🎵 Play Music
+</button>
+
+
+  <header>
+    <h1>Our Beautiful Journey ❤️</h1>
+    <p>Every memory with you is my favorite chapter 💕</p>
+  </header>
+
+  <div class="timeline">
+    <div class="container left">
+      <h2>✨ The Day We Met</h2>
+      <p>I still remember the first time I saw you… it felt like magic. 💫</p>
+      <img src="42ED1D66-1A68-4936-92DB-08EB1AEECEAD.jpg" alt="memory 1">
+    </div>
+
+    <div class="container right">
+      <h2>🌸 Our First Date</h2>
+      <p>The happiest day of my life, holding your hand and smiling endlessly. 😊</p>
+      <img src="fir.jpg" alt="memory 2">
+    </div>
+
+    <div class="container left">
+      <h2>💌 Special Moments</h2>
+      <p>Every little adventure, every laugh, every silly joke—we created our own fairytale. 🥰</p>
+      <img src="fbxc.jpg" alt="memory 3">
+    </div>
+
+    <div class="container right">
+      <h2>💖 Forever With You</h2>
+      <p>No matter what happens, I want to stay with you, always. ❤️</p>
+      <img src="third.jpg" alt="memory 4">
+    </div>
+  </div>
+<h4>Please click below</h4>
+  <footer>
+    <p>Made with ❤️ just for you My Kanna | <a href="breakup.html">Click here</a></p>
+  </footer>
+
+  <script>
+    // floating hearts
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 20 + 15 + "px";
+      heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }, 500);
+  </script>
+</body>
+</html>

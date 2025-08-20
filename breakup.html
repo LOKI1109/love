@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>No Breakup Allowed 💔</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to right, #ffafbd, #ffc3a0);
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 2em;
+      color: red;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      margin: 15px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #yes {
+      background: lightcoral;
+      position: absolute;
+    }
+
+    #no {
+      background: lightgreen;
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: fixed;
+      bottom: 0;
+      color: red;
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-100vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Do you really want to breakup with me? 🥺</h1>
+  <button id="yes">Yes 💔</button>
+  <button id="no" onclick="alert('Yay! I knew you want to stay with me forever ❤️😘')">No 💕</button>
+
+  <script>
+    const yesBtn = document.getElementById("yes");
+
+    // Make "Yes" button run away
+    yesBtn.addEventListener("mouseover", () => {
+      const x = Math.floor(Math.random() * (window.innerWidth - yesBtn.clientWidth));
+      const y = Math.floor(Math.random() * (window.innerHeight - yesBtn.clientHeight));
+      yesBtn.style.left = x + "px";
+      yesBtn.style.top = y + "px";
+    });
+
+    // Floating hearts
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 20 + 15 + "px";
+      heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }, 500);
+  </script>
+</body>
+</html>
